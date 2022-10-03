@@ -8,11 +8,6 @@ public class ThermometerViewModel {
   private StringProperty thermometer2;
   private StringProperty alert;
 
-  public ThermometerViewModel() {
-
-  }
-
-
   public StringProperty getThermometer1() {
     return thermometer1;
   }
