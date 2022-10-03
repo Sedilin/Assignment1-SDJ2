@@ -32,7 +32,7 @@ public class ThermometerViewController
     return root;
   }
 
-  public void handleForBookings(ActionEvent event)
+  public void OnPressButton(ActionEvent event)
   {
     if (event.getSource() == btnBack)
     {
