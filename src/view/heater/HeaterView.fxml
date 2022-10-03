@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="view.heater.HeaterViewController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.heater.HeaterViewController">
+   <children>
+      <ButtonBar layoutX="28.0" layoutY="240.0" prefHeight="40.0" prefWidth="200.0" />
+    <Button fx:id="btnHeatUp" layoutX="386.0" layoutY="168.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="78.0" text="Heat Up" />
+    <Button fx:id="btnCoolDown" layoutX="128.0" layoutY="168.0" mnemonicParsing="false" text="Cool Down" />
+      <Label fx:id="labelValue" alignment="CENTER" contentDisplay="CENTER" layoutX="278.0" layoutY="168.0" lineSpacing="1.0" prefHeight="26.0" prefWidth="44.0" text="0" textAlignment="CENTER" />
+      <Label fx:id="labelHeater" alignment="CENTER" layoutX="258.0" layoutY="91.0" prefHeight="17.0" prefWidth="86.0" text="Heater" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnNext" alignment="CENTER" layoutX="279.0" layoutY="293.0" mnemonicParsing="false" text="Next" />
+      <Label fx:id="labelReset" layoutX="286.0" layoutY="336.0" text="Reset" />
+   </children>
 </AnchorPane>
