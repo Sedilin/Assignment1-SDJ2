@@ -17,7 +17,7 @@ public class HeaterViewModel {
     {
         heater.turnUp();
     }
-    public void heatDown()
+    public void coolDown()
     {
         heater.turnDown();
     }
