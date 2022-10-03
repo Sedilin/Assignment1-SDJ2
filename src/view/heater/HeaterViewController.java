@@ -1,8 +1,8 @@
 package view.heater;
 
 import core.ViewHandler;
-import external.thermometer.Temperature;
 import javafx.beans.property.StringProperty;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -13,9 +13,7 @@ public class HeaterViewController {
     public Button btnHeatUp;
     public Button btnCoolDown;
     public Label labelValue;
-    public Label labelHeater;
     public Button btnNext;
-    public Label labelReset;
     private ViewHandler viewHandler;
     private HeaterViewModel model;
     private Region root;
@@ -26,41 +24,30 @@ public class HeaterViewController {
         this.model = model;
         this.root = root;
     }
-    public void setBtnHeatUp(){
-        this.btnHeatUp = btnHeatUp;
-    }
-    public void setBtnNext(Button btnNext) {
-        this.btnNext = btnNext;
-    }
-    public void setLabelHeater(Label labelHeater) {
-        this.labelHeater = labelHeater;
-    }
 
-    public void setBtnCoolDown(Button btnCoolDown) {
-        this.btnCoolDown = btnCoolDown;
-    }
-    public void setLabelReset()
+    public void reset()
     {
-        // empty
+        labelValue.setText("0");
     }
 
-    public javafx.scene.layout.Region getRoot()
+    public Region getRoot()
     {
         return root;
     }
 
-    @FXML
-    private void LabelReset()
-    {
-        StringProperty t = model.getPower();
-        if (t != null)
+
+    public void onButtonPressed(ActionEvent e) {
+        if (e.getSource() == btnNext)
         {
-            labelValue.setText(t.toString());
+            viewHandler.openView("thermometerView");
         }
-        else
+        else if(e.getSource() == btnHeatUp)
         {
-            labelValue.setText("0");
+            model.heatUp();
+        }
+        else if(e.getSource() == btnCoolDown)
+        {
+            model.coolDown();
         }
     }
-
 }
