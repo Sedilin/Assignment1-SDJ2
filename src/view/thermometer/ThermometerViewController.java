@@ -38,9 +38,5 @@ public class ThermometerViewController
     {
       viewHandler.openView("HeaterView");
     }
-    //else if (event.getSource() != btnBack) {}
-
-
-
   }
 }
