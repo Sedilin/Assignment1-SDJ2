@@ -9,7 +9,7 @@ public class HeaterThread implements Runnable{
     @Override
     public void run() {
         try {
-            Thread.sleep(10000);
+            Thread.sleep(40000);
             heater.turnDown();
         } catch (InterruptedException e) {
             e.printStackTrace();
