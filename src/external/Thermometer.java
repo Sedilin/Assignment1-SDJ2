@@ -11,13 +11,15 @@ public class Thermometer implements Runnable{
     private int d;
     TemperatureListModel temperatureModel;
     private Heater heater;
-    private int p = heater.getPower();
+    private int p;
 
-    public Thermometer(String id, double t, int d, TemperatureListModel temperatureModel){
+    public Thermometer(String id, double t, int d, Heater heater, TemperatureListModel temperatureModel){
+        this.heater = heater;
         this.id = id;
         this.t = t;
         this.d = d;
         this.temperatureModel = temperatureModel;
+        p = heater.getPower();
     }
     // internal temperature method
     public double temperature(double t, int p, int d, double t0, int s){
@@ -37,7 +39,7 @@ public class Thermometer implements Runnable{
     @Override
     public void run() {
         while (true) {
-            t = temperature(t, 2, d, 0, 6);
+            t = temperature(t, p, d, 0, 6);
             System.out.println("Temperature: " + t + ", ID: " + id);
             temperatureModel.addTemperature(id, t);
             try {
