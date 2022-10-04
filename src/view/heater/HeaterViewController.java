@@ -14,7 +14,6 @@ public class HeaterViewController {
     public Button btnCoolDown;
     public Label labelValue;
     public Button btnNext;
-    public Button btnReset;
     private ViewHandler viewHandler;
     private HeaterViewModel model;
     private Region root;
