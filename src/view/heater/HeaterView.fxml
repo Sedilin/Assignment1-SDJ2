@@ -18,6 +18,5 @@
          </font>
       </Label>
       <Button fx:id="btnNext" alignment="CENTER" layoutX="279.0" layoutY="293.0" mnemonicParsing="false" onAction="#onButtonPressed" text="Next" />
-      <Label fx:id="labelReset" layoutX="286.0" layoutY="336.0" text="Reset" />
    </children>
 </AnchorPane>

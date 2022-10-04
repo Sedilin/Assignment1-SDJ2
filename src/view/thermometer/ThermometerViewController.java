@@ -14,6 +14,7 @@ public class ThermometerViewController
   public Label labelThermometer1Value;
   public Label labelThermometer2Value;
   public Button btnBack;
+  public Label labelOutsideThermometerValue;
 
   private ViewHandler viewHandler;
   private ThermometerViewModel modelManager;
@@ -26,7 +27,6 @@ public class ThermometerViewController
     this.modelManager = modelManager;
     this.root = root;
   }
-
 
   public Region getRoot()
   {
