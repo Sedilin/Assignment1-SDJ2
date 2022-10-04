@@ -39,6 +39,7 @@ public class Thermometer implements Runnable{
     @Override
     public void run() {
         while (true) {
+            p = heater.getPower();
             t = temperature(t, p, d, 0, 6);
             System.out.println("Temperature: " + t + ", ID: " + id);
             temperatureModel.addTemperature(id, t);

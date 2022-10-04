@@ -15,13 +15,15 @@ public class MyApplication extends Application {
 
         TemperatureListModel temperatureListModel = new TemperatureListModelManager();
         Heater heater = new Heater();
+        heater.turnUp();
+        heater.turnUp();
         ModelFactory model = new ModelFactory(temperatureListModel, heater);
 
         // View
 
         //View handler to be implemented
         ViewHandler view = new ViewHandler(model);
-        view.start();
+        view.start(stage);
 
 
         Thread t1 = new Thread(new Thermometer("t1", 15, 1, model.getHeater(), model.getTemperatureList()));

@@ -27,6 +27,7 @@ public class ThermometerViewController
     this.root = root;
   }
 
+
   public Region getRoot()
   {
     return root;
@@ -36,7 +37,7 @@ public class ThermometerViewController
   {
     if (event.getSource() == btnBack)
     {
-      viewHandler.openView("HeaterView");
+      viewHandler.openView("heater");
     }
   }
 }

@@ -1,6 +1,7 @@
 package view.heater;
 
 import external.heater.Heater;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class HeaterViewModel {
@@ -10,7 +11,7 @@ public class HeaterViewModel {
     public HeaterViewModel(Heater heater)
     {
         this.heater = heater;
-        power.setValue("0");
+        power = new SimpleStringProperty("0");
     }
 
     public void heatUp()

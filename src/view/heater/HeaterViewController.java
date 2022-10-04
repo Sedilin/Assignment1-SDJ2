@@ -39,7 +39,7 @@ public class HeaterViewController {
     public void onButtonPressed(ActionEvent e) {
         if (e.getSource() == btnNext)
         {
-            viewHandler.openView("thermometerView");
+            viewHandler.openView("thermometer");
         }
         else if(e.getSource() == btnHeatUp)
         {

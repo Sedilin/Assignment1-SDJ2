@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class TemperatureListModelManager implements TemperatureListModel{
 
-    private ArrayList<Temperature> temperatureList;
+    private ArrayList<Temperature> temperatureList = new ArrayList<>();
     private PropertyChangeSupport support;
 
     @Override

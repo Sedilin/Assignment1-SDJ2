@@ -6,6 +6,8 @@ import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import view.heater.HeaterViewController;
 import view.heater.HeaterViewModel;
+import view.thermometer.ThermometerViewController;
+import view.thermometer.ThermometerViewModel;
 
 public class ViewHandler {
     private Stage primaryStage;
@@ -15,23 +17,30 @@ public class ViewHandler {
     private HeaterViewController heaterViewController;
     private HeaterViewModel heaterModel;
 
+    private ThermometerViewController thermometerViewController;
+    private ThermometerViewModel thermometerModel;
+
     public ViewHandler(ModelFactory model)
     {
         this.model = model;
     }
 
-    public void start()
+    public void start(Stage primaryStage)
     {
+        this.primaryStage = primaryStage;
         this.currentScene = new Scene(new Region());
-        openView("temperature");
+        openView("heater");
     }
     public void openView(String id)
     {
         Region root = null;
         switch (id)
         {
-            case "temperature":
-                root = loadTemperatureView("ThermometerView.fxml");
+            case "heater":
+                root = loadHeaterView("../view/heater/HeaterView.fxml");
+                break;
+            case "thermometer" :
+                root = loadTemperatureView("../view/thermometer/ThermometerView.fxml");
                 break;
         }
         currentScene.setRoot(root);
@@ -48,7 +57,7 @@ public class ViewHandler {
         primaryStage.show();
     }
 
-    private Region loadTemperatureView(String fxmlFile)
+    private Region loadHeaterView(String fxmlFile)
     {
         if (heaterViewController == null)
         {
@@ -70,5 +79,24 @@ public class ViewHandler {
             heaterViewController.reset();
         }
         return heaterViewController.getRoot();
+    }
+    private Region loadTemperatureView(String fxmlFile)
+    {
+        if (thermometerViewController == null)
+        {
+            try
+            {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource(fxmlFile));
+                Region root = loader.load();
+                thermometerViewController = loader.getController();
+                thermometerViewController.init(this, thermometerModel, root);
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return thermometerViewController.getRoot();
     }
 }
