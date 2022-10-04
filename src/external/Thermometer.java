@@ -42,6 +42,7 @@ public class Thermometer implements Runnable{
             p = heater.getPower();
             t = temperature(t, p, d, 0, 6);
             System.out.println("Temperature: " + t + ", ID: " + id);
+            System.out.println(p);
             temperatureModel.addTemperature(id, t);
             try {
                 Thread.sleep(6000);

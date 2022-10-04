@@ -9,11 +9,11 @@ public class ViewModelFactory {
     ThermometerViewModel thermometerViewModel;
     HeaterViewModel heaterViewModel;
 
-    public ViewModelFactory(ModelFactory modelFactory, ThermometerViewModel thermometerViewModel, HeaterViewModel heaterViewModel)
+    public ViewModelFactory(ModelFactory modelFactory)
     {
         this.modelFactory = modelFactory;
-        this.heaterViewModel = heaterViewModel;
-        this.thermometerViewModel = thermometerViewModel;
+        this.heaterViewModel = new HeaterViewModel(modelFactory.getHeater());
+        this.thermometerViewModel = new ThermometerViewModel();
     }
 
     public HeaterViewModel getHeaterViewModel()

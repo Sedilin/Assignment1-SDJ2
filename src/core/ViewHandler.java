@@ -13,6 +13,7 @@ public class ViewHandler {
     private Stage primaryStage;
     private Scene currentScene;
     private ModelFactory model;
+    private ViewModelFactory viewModelFactory;
 
     private HeaterViewController heaterViewController;
     private HeaterViewModel heaterModel;
@@ -20,9 +21,12 @@ public class ViewHandler {
     private ThermometerViewController thermometerViewController;
     private ThermometerViewModel thermometerModel;
 
-    public ViewHandler(ModelFactory model)
+    public ViewHandler(ModelFactory model, ViewModelFactory viewModelFactory)
     {
+        this.viewModelFactory = viewModelFactory;
         this.model = model;
+        heaterModel = viewModelFactory.getHeaterViewModel();
+        thermometerModel = viewModelFactory.getThermometerViewModel();
     }
 
     public void start(Stage primaryStage)

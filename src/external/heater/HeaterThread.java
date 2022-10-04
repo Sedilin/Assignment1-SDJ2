@@ -12,7 +12,7 @@ public class HeaterThread implements Runnable{
             Thread.sleep(40000);
             heater.turnDown();
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            System.out.println("Turn down");
         }
     }
 }

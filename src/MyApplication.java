@@ -1,5 +1,6 @@
 import core.ModelFactory;
 import core.ViewHandler;
+import core.ViewModelFactory;
 import external.Thermometer;
 import external.heater.Heater;
 import javafx.application.Application;
@@ -12,17 +13,13 @@ public class MyApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         // Model
-
-        TemperatureListModel temperatureListModel = new TemperatureListModelManager();
-        Heater heater = new Heater();
-        heater.turnUp();
-        heater.turnUp();
-        ModelFactory model = new ModelFactory(temperatureListModel, heater);
+        ModelFactory model = new ModelFactory();
+        ViewModelFactory viewModelFactory = new ViewModelFactory(model);
 
         // View
 
         //View handler to be implemented
-        ViewHandler view = new ViewHandler(model);
+        ViewHandler view = new ViewHandler(model, viewModelFactory);
         view.start(stage);
 
 

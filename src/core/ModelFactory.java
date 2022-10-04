@@ -2,14 +2,15 @@ package core;
 
 import external.heater.Heater;
 import model.TemperatureListModel;
+import model.TemperatureListModelManager;
 
 public class ModelFactory {
     private TemperatureListModel temperatureList;
     private Heater heater;
-    public ModelFactory(TemperatureListModel temperatureList, Heater heater)
+    public ModelFactory()
     {
-        this.temperatureList = temperatureList;
-        this.heater = heater;
+        this.temperatureList = new TemperatureListModelManager();
+        this.heater = new Heater();
     }
 
     public Heater getHeater() {
