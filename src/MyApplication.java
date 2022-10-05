@@ -23,8 +23,8 @@ public class MyApplication extends Application {
         view.start(stage);
 
 
-        Thread t1 = new Thread(new Thermometer("t1", 15, 1, model.getHeater(), model.getTemperatureList()));
-        Thread t2 = new Thread(new Thermometer("t2", 15, 7, model.getHeater(), model.getTemperatureList()));
+        Thread t1 = new Thread(new Thermometer("t1", 15, 1, model.getModel().getHeater()));
+        Thread t2 = new Thread(new Thermometer("t2", 15, 7, model.getModel().getHeater()));
         t1.start();
         t2.start();
 

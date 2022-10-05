@@ -1,23 +1,19 @@
 package core;
 
+import external.Model;
+import external.ModelManager;
 import external.heater.Heater;
 import model.TemperatureListModel;
 import model.TemperatureListModelManager;
 
 public class ModelFactory {
-    private TemperatureListModel temperatureList;
-    private Heater heater;
+    Model model;
     public ModelFactory()
     {
-        this.temperatureList = new TemperatureListModelManager();
-        this.heater = new Heater();
+        model = new ModelManager();
     }
 
-    public Heater getHeater() {
-        return heater;
-    }
-
-    public TemperatureListModel getTemperatureList() {
-        return temperatureList;
+    public Model getModel() {
+        return model;
     }
 }

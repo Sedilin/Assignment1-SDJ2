@@ -1,33 +1,34 @@
 package view.heater;
 
+import external.Model;
 import external.heater.Heater;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import util.PropertyChangeSubject;
+
 
 public class HeaterViewModel {
-    private Heater heater;
+    private Model model;
     private StringProperty power;
 
-    public HeaterViewModel(Heater heater)
-    {
-        this.heater = heater;
+    public HeaterViewModel(Model model) {
+        this.model = model;
         power = new SimpleStringProperty("0");
     }
 
-    public void heatUp()
-    {
-        heater.turnUp();
+    public void heatUp() {
+        model.heatUp();
     }
-    public void coolDown()
-    {
-        heater.turnDown();
+
+    public void coolDown() {
+        model.coolDown();
     }
-    public void updatePower()
-    {
-        power.setValue(String.valueOf(heater.getPower()));
+
+    public void updatePower() {
+        power.setValue(String.valueOf(model.getPower()));
     }
-    public StringProperty getPower()
-    {
+
+    public StringProperty getPower() {
         return power;
     }
 

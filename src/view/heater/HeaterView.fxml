@@ -11,7 +11,7 @@
       <ButtonBar layoutX="28.0" layoutY="240.0" prefHeight="40.0" prefWidth="200.0" />
     <Button fx:id="btnHeatUp" layoutX="386.0" layoutY="168.0" mnemonicParsing="false" onAction="#onButtonPressed" prefHeight="26.0" prefWidth="78.0" text="Heat Up" />
     <Button fx:id="btnCoolDown" layoutX="128.0" layoutY="168.0" mnemonicParsing="false" onAction="#onButtonPressed" text="Cool Down" />
-      <Label fx:id="labelValue" alignment="CENTER" contentDisplay="CENTER" layoutX="278.0" layoutY="168.0" lineSpacing="1.0" prefHeight="26.0" prefWidth="44.0" text="0" textAlignment="CENTER" />
+      <Label fx:id="powerValue" alignment="CENTER" contentDisplay="CENTER" layoutX="278.0" layoutY="168.0" lineSpacing="1.0" prefHeight="26.0" prefWidth="44.0" text="0" textAlignment="CENTER" />
       <Label fx:id="labelHeater" alignment="CENTER" layoutX="258.0" layoutY="91.0" prefHeight="17.0" prefWidth="86.0" text="Heater" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="24.0" />

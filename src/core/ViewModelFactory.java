@@ -12,7 +12,7 @@ public class ViewModelFactory {
     public ViewModelFactory(ModelFactory modelFactory)
     {
         this.modelFactory = modelFactory;
-        this.heaterViewModel = new HeaterViewModel(modelFactory.getHeater());
+        this.heaterViewModel = new HeaterViewModel(modelFactory.getModel());
         this.thermometerViewModel = new ThermometerViewModel();
     }
 

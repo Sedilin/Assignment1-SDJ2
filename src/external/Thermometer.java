@@ -13,12 +13,11 @@ public class Thermometer implements Runnable{
     private Heater heater;
     private int p;
 
-    public Thermometer(String id, double t, int d, Heater heater, TemperatureListModel temperatureModel){
+    public Thermometer(String id, double t, int d, Heater heater){
         this.heater = heater;
         this.id = id;
         this.t = t;
         this.d = d;
-        this.temperatureModel = temperatureModel;
         p = heater.getPower();
     }
     // internal temperature method
@@ -43,7 +42,6 @@ public class Thermometer implements Runnable{
             t = temperature(t, p, d, 0, 6);
             System.out.println("Temperature: " + t + ", ID: " + id);
             System.out.println(p);
-            temperatureModel.addTemperature(id, t);
             try {
                 Thread.sleep(6000);
             } catch (InterruptedException e) {
