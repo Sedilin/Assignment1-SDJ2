@@ -2,6 +2,7 @@ package view.heater;
 
 import core.ViewHandler;
 import javafx.application.Platform;
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,6 +23,7 @@ public class HeaterViewController implements PropertyChangeListener {
     private ViewHandler viewHandler;
     private HeaterViewModel model;
     private Region root;
+    IntegerProperty power;
 
     public void init(ViewHandler viewHandler, HeaterViewModel model, Region root)
     {
@@ -32,7 +34,7 @@ public class HeaterViewController implements PropertyChangeListener {
 
     public void reset()
     {
-        powerValue.setText("0");
+
     }
 
     public Region getRoot()
@@ -50,12 +52,14 @@ public class HeaterViewController implements PropertyChangeListener {
         else if(e.getSource() == btnHeatUp)
         {
             model.heatUp();
-            reset();
+            power = model.getPower();
+            powerValue.setText(String.valueOf(power.getValue()));
         }
         else if(e.getSource() == btnCoolDown)
         {
             model.coolDown();
-            reset();
+            power = model.getPower();
+            powerValue.setText(String.valueOf(power.getValue()));
         }
     }
 

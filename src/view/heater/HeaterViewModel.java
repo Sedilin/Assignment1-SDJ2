@@ -2,6 +2,8 @@ package view.heater;
 
 import external.Model;
 import external.heater.Heater;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import util.PropertyChangeSubject;
@@ -9,11 +11,11 @@ import util.PropertyChangeSubject;
 
 public class HeaterViewModel {
     private Model model;
-    private StringProperty power;
+    private IntegerProperty power;
 
     public HeaterViewModel(Model model) {
         this.model = model;
-        power = new SimpleStringProperty("0");
+        power = new SimpleIntegerProperty(model.getPower());
     }
 
     public void heatUp() {
@@ -24,11 +26,9 @@ public class HeaterViewModel {
         model.coolDown();
     }
 
-    public void updatePower() {
-        power.setValue(String.valueOf(model.getPower()));
-    }
 
-    public StringProperty getPower() {
+    public IntegerProperty getPower() {
+        power.setValue(model.getPower());
         return power;
     }
 
