@@ -1,6 +1,7 @@
 package external;
 
 import external.heater.Heater;
+import external.thermometer.Temperature;
 import model.TemperatureListModel;
 import model.TemperatureListModelManager;
 
@@ -13,6 +14,8 @@ public class Thermometer implements Runnable{
     private Heater heater;
     private int p;
 
+    public Thermometer(){};
+
     public Thermometer(String id, double t, int d, Heater heater){
         this.heater = heater;
         this.id = id;
@@ -20,6 +23,7 @@ public class Thermometer implements Runnable{
         this.d = d;
         p = heater.getPower();
     }
+
     // internal temperature method
     public double temperature(double t, int p, int d, double t0, int s){
         double tMax = Math.min(11 * p + 10, 11 * p + 10 + t0);
@@ -32,6 +36,11 @@ public class Thermometer implements Runnable{
         }
         double outdoorTerm = (t - t0) * s / 250.0;
         t = Math.min(Math.max(t - outdoorTerm + heaterTerm, t0), tMax);
+        return t;
+    }
+
+    public double getT()
+    {
         return t;
     }
 

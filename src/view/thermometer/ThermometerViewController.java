@@ -14,7 +14,7 @@ public class ThermometerViewController
   public Label labelThermometer1Value;
   public Label labelThermometer2Value;
   public Button btnBack;
-  public Label labelOutsideThermometerValue;
+  public Button updateButton;
 
   private ViewHandler viewHandler;
   private ThermometerViewModel modelManager;
@@ -26,6 +26,9 @@ public class ThermometerViewController
     this.viewHandler = viewHandler;
     this.modelManager = modelManager;
     this.root = root;
+
+    labelThermometer1Value.textProperty().bind(modelManager.getT1());
+    labelThermometer2Value.textProperty().bind(modelManager.getT2());
   }
 
   public Region getRoot()
@@ -38,6 +41,11 @@ public class ThermometerViewController
     if (event.getSource() == btnBack)
     {
       viewHandler.openView("heater");
+    }
+    else if (event.getSource() == updateButton)
+    {
+      modelManager.updateT1();
+      modelManager.updateT2();
     }
   }
 }

@@ -1,6 +1,7 @@
 package external;
 
 import external.heater.Heater;
+import external.thermometer.Temperature;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -9,20 +10,22 @@ public class ModelManager implements Model{
 
     private PropertyChangeSupport support;
 
-    private int previous, current;
+    private double previousTemp, currentTemp;
+    private int currentPower;
     private Heater heater;
     private Thermometer thermometer1;
     private Thermometer thermometer2;
     public ModelManager()
     {
         this.heater = new Heater();
+        this.thermometer1 = new Thermometer();
+        this.thermometer2 = new Thermometer();
         support = new PropertyChangeSupport(this);
     }
-
+    @Override
     public Heater getHeater() {
         return heater;
     }
-
     @Override
     public int getPower() {
         return heater.getPower();
@@ -30,20 +33,42 @@ public class ModelManager implements Model{
 
     @Override
     public void heatUp() {
-        previous = heater.getPower();
         heater.turnUp();
-        current = heater.getPower();
+        currentPower = heater.getPower();
 
-        support.firePropertyChange("PowerChange", previous, current);
+        support.firePropertyChange("Power", null, currentPower);
     }
 
     @Override
     public void coolDown() {
-        previous = heater.getPower();
         heater.turnDown();
-        current = heater.getPower();
+        currentPower = heater.getPower();
 
-        support.firePropertyChange("PowerChange", previous, current);
+        support.firePropertyChange("Power", null, currentPower);
+    }
+
+    @Override
+    public void updateT1()
+    {
+        currentTemp = thermometer1.getT();
+        support.firePropertyChange("T1Change", null, currentTemp);
+    }
+    @Override
+    public void updateT2()
+    {
+        currentTemp = thermometer2.getT();
+        support.firePropertyChange("T2Change", null, currentTemp);
+    }
+
+    @Override
+    public double returnTemp1()
+    {
+        return thermometer1.getT();
+    }
+    @Override
+    public double returnTemp2()
+    {
+        return thermometer2.getT();
     }
 
     @Override

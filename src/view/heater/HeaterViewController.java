@@ -14,7 +14,7 @@ import util.PropertyChangeSubject;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-public class HeaterViewController implements PropertyChangeListener {
+public class HeaterViewController {
 
     public Button btnHeatUp;
     public Button btnCoolDown;
@@ -23,13 +23,14 @@ public class HeaterViewController implements PropertyChangeListener {
     private ViewHandler viewHandler;
     private HeaterViewModel model;
     private Region root;
-    IntegerProperty power;
 
     public void init(ViewHandler viewHandler, HeaterViewModel model, Region root)
     {
         this.viewHandler = viewHandler;
         this.model = model;
         this.root = root;
+
+        powerValue.textProperty().bind(model.getPower());
     }
 
     public void reset()
@@ -52,19 +53,12 @@ public class HeaterViewController implements PropertyChangeListener {
         else if(e.getSource() == btnHeatUp)
         {
             model.heatUp();
-            power = model.getPower();
-            powerValue.setText(String.valueOf(power.getValue()));
         }
         else if(e.getSource() == btnCoolDown)
         {
             model.coolDown();
-            power = model.getPower();
-            powerValue.setText(String.valueOf(power.getValue()));
         }
     }
 
-    @Override
-    public void propertyChange(PropertyChangeEvent evt) {
-        Platform.runLater(() -> powerValue.setText(evt.getNewValue().toString()));
-    }
+
 }

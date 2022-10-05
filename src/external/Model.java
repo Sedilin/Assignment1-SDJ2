@@ -11,5 +11,8 @@ public interface Model extends PropertyChangeSubject {
     void heatUp();
     void coolDown();
     Heater getHeater();
-
+    void updateT1();
+    void updateT2();
+    double returnTemp1();
+    double returnTemp2();
 }
