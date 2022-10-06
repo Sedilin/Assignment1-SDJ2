@@ -12,8 +12,9 @@ public class ThermometerViewController
   public Label labelThermometer2Value;
   public Button btnBack;
   public Button updateButton;
-
+  public Label warningLabel;
   private ViewHandler viewHandler;
+  public Label tempState;
   private ThermometerViewModel modelManager;
   private Region root;
 
@@ -42,6 +43,17 @@ public class ThermometerViewController
     else if (event.getSource() == updateButton)
     {
       modelManager.updateT1();
+      String temp = modelManager.getT1().getValue();
+      if(Double.parseDouble(temp) < 15)
+      {
+        warningLabel.setText("Temperature is LOW");
+      }else if(Double.parseDouble(temp) > 25)
+      {
+        warningLabel.setText("Temperature is HIGH");
+      }
+      else{
+        warningLabel.setText("Temperature is fine");
+      }
       modelManager.updateT2();
     }
   }

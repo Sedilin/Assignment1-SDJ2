@@ -3,16 +3,29 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.thermometer.ThermometerViewController">
    <children>
-      <Label layoutX="128.0" layoutY="80.0" text="Thermometer 1" />
-      <Label layoutX="258.0" layoutY="80.0" text="Thermometer 2" />
-      <Label fx:id="labelThermometer1Value" layoutX="155.0" layoutY="121.0" text="0.0" />
-      <Label fx:id="labelOutsideThermometerValue" layoutX="423.0" layoutY="121.0" text="0.0" />
+      <Label layoutX="184.0" layoutY="132.0" text="Thermometer 1">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label layoutX="314.0" layoutY="132.0" text="Thermometer 2">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label fx:id="labelThermometer1Value" layoutX="221.0" layoutY="173.0" text="0.0">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
       <Button fx:id="btnBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#OnPressButton" text="Back" />
-      <Label layoutX="372.0" layoutY="80.0" text="Outside Thermometer" />
-      <Label fx:id="labelThermometer2Value" layoutX="291.0" layoutY="121.0" text="0.0" />
-      <Button fx:id="updateButton" layoutX="273.0" layoutY="200.0" mnemonicParsing="false" onAction="#OnPressButton" text="Button" />
+      <Label fx:id="labelThermometer2Value" layoutX="357.0" layoutY="173.0" text="0.0">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="warningLabel" layoutX="257.0" layoutY="312.0" prefHeight="18.0" prefWidth="213.0" textFill="#e40a0a" />
+      <Button fx:id="updateButton" layoutX="273.0" layoutY="242.0" mnemonicParsing="false" onAction="#OnPressButton" text="Update" />
+      <Label fx:id="tempState" layoutX="141.0" layoutY="313.0" text="Temperature state:" />
    </children>
 </AnchorPane>
