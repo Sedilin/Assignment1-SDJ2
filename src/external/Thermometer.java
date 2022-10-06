@@ -41,7 +41,7 @@ public class Thermometer implements Runnable{
 
     public double getT()
     {
-        return t;
+        return Math.floor(t);
     }
 
     @Override

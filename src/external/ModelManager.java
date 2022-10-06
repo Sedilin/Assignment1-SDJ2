@@ -18,8 +18,15 @@ public class ModelManager implements Model{
     public ModelManager()
     {
         this.heater = new Heater();
-        this.thermometer1 = new Thermometer();
-        this.thermometer2 = new Thermometer();
+        this.thermometer1 = new Thermometer("t1", 15, 1, heater);
+        this.thermometer2 = new Thermometer("t2", 15, 7, heater);
+
+        Thread t1 = new Thread(thermometer1);
+        Thread t2 = new Thread(thermometer2);
+
+        t1.start();
+        t2.start();
+
         support = new PropertyChangeSupport(this);
     }
     @Override
