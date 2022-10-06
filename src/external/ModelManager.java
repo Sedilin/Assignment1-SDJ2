@@ -10,7 +10,7 @@ public class ModelManager implements Model{
 
     private PropertyChangeSupport support;
 
-    private double previousTemp, currentTemp;
+    private double currentTemp;
     private int currentPower;
     private Heater heater;
     private Thermometer thermometer1;
@@ -18,7 +18,7 @@ public class ModelManager implements Model{
     public ModelManager()
     {
         this.heater = new Heater();
-        this.thermometer1 = new Thermometer("t1", 15, 1, heater);
+        this.thermometer1 = new Thermometer("t1", 20, 1, heater);
         this.thermometer2 = new Thermometer("t2", 15, 7, heater);
 
         Thread t1 = new Thread(thermometer1);

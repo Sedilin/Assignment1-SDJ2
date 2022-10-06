@@ -45,7 +45,11 @@ public class ThermometerViewModel implements PropertyChangeListener {
 
   @Override
   public void propertyChange(PropertyChangeEvent evt) {
-    Platform.runLater(() -> t1.setValue(evt.getNewValue().toString()));
+    if (evt.getPropertyName().equals("T1Change"))
+    {
+      Platform.runLater(() -> t1.setValue(evt.getNewValue().toString()));
+    }
+    else if (evt.getPropertyName().equals("T2Change"))
     Platform.runLater(() -> t2.setValue(evt.getNewValue().toString()));
   }
 }
