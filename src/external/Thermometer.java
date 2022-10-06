@@ -1,16 +1,12 @@
 package external;
 
 import external.heater.Heater;
-import external.thermometer.Temperature;
-import model.TemperatureListModel;
-import model.TemperatureListModelManager;
 
 public class Thermometer implements Runnable{
 
     private String id;
     private double t;
     private int d;
-    TemperatureListModel temperatureModel;
     private Heater heater;
     private int p;
 

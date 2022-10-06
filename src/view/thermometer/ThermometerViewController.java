@@ -1,12 +1,10 @@
 package view.thermometer;
 
-import core.ModelFactory;
 import core.ViewHandler;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
-import view.heater.HeaterViewModel;
 
 public class ThermometerViewController
 {

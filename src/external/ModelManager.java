@@ -1,7 +1,6 @@
 package external;
 
 import external.heater.Heater;
-import external.thermometer.Temperature;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;

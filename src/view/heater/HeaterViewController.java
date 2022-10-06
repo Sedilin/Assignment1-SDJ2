@@ -1,18 +1,11 @@
 package view.heater;
 
 import core.ViewHandler;
-import javafx.application.Platform;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
-import util.PropertyChangeSubject;
 
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 
 public class HeaterViewController {
 

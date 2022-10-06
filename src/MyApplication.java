@@ -1,12 +1,8 @@
 import core.ModelFactory;
 import core.ViewHandler;
 import core.ViewModelFactory;
-import external.Thermometer;
-import external.heater.Heater;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import model.TemperatureListModel;
-import model.TemperatureListModelManager;
 
 public class MyApplication extends Application {
 
